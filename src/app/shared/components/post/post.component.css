@@ -1,0 +1,22 @@
+.post-container {
+    border: 2px solid grey;
+    padding: 10px;
+    background-color: whitesmoke;
+    width: 80%;
+    margin: 5px auto;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-author {
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 10px;
+    width: 200px;
+    border: 2px solid grey;
+}
