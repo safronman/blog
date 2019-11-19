@@ -1,2 +1,26 @@
-<p>admin-layout works!</p>
+<nav class="admin-layout-nav">
+    <h1 class="admin-layout-title" [routerLink]="['/']">Angular admin</h1>
+
+    <div class="admin-layout-container">
+        <ul class="admin-layout-links">
+            <li class="admin-layout-link">
+                <a
+                    class="admin-layout-href"
+                    [routerLink]="['/admin', 'dashboard']"
+                    routerLinkActive="admin-layout-href-active"
+                >Main</a>
+            </li>
+            <li>
+                <a
+                    class="admin-layout-href"
+                    [routerLink]="['/admin', 'create']"
+                    routerLinkActive="admin-layout-href-active"
+                >Create post</a>
+            </li>
+        </ul>
+        <button class="btn" (click)="logOut($event)">Log out</button>
+    </div>
+</nav>
+
+
 <router-outlet></router-outlet>

@@ -1,7 +1,10 @@
 .nav-container {
-    border: 2px solid grey;
     padding: 10px;
-    background-color: lightgrey;
-    text-align: center;
+    background-color: dodgerblue;
     margin-bottom: 20px;
+}
+
+.nav-container-title {
+    color: white;
+    text-transform: uppercase;
 }

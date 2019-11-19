@@ -1,0 +1,40 @@
+.admin-layout-nav {
+    padding: 10px;
+    background-color: crimson;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.admin-layout-title {
+    color: white;
+    text-transform: uppercase;
+}
+
+.admin-layout-container {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.admin-layout-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.admin-layout-href {
+    margin: 10px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.admin-layout-href-active {
+    color: black;
+}
+
