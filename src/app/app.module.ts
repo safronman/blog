@@ -3,11 +3,12 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
-import { MainLayoutComponent } from './shared/components/main-layout/main-layout.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { PostPageComponent } from './post-page/post-page.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { PostComponent } from './shared/components/post/post.component';
+import {MainLayoutComponent} from './shared/components/main-layout/main-layout.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {PostPageComponent} from './post-page/post-page.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
+import {PostComponent} from './shared/components/post/post.component';
+import {SharedModule} from './admin/shared.module';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,8 @@ import { PostComponent } from './shared/components/post/post.component';
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        SharedModule
     ],
     providers: [],
     bootstrap: [AppComponent]
