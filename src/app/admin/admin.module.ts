@@ -6,6 +6,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {EditPageComponent} from './edit-page/edit-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 import {CreatePageComponent} from './create-page/create-page.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import {CreatePageComponent} from './create-page/create-page.component';
     ],
     imports: [
         CommonModule,
-        AdminRoutingModule
+        AdminRoutingModule,
+        ReactiveFormsModule
     ],
 })
 export class AdminModule {

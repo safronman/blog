@@ -1,0 +1,28 @@
+.form-container {
+    width: 600px;
+    border: 2px solid black;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid grey;
+}
+
+.form-validation {
+    color: crimson;
+    font-size: 18px;
+}
+
+.form-control-error {
+    border: 2px solid crimson;
+}
+
+

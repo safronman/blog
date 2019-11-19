@@ -1,1 +1,36 @@
-<p>login-page works!</p>
+<form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+        <label for="email">Email:</label>
+        <input class="form-input"
+               type="email"
+               id="email"
+               formControlName="email"
+               [ngClass]="{'form-control-error': loginForm.get('email').touched && loginForm.get('email').invalid}"
+        >
+        <div class="form-validation"
+             *ngIf="loginForm.get('email').touched && loginForm.get('email').invalid">
+            <small *ngIf="loginForm.get('email').errors.required">Email is empty</small>
+            <small *ngIf="loginForm.get('email').errors.email">Incorrect email</small>
+        </div>
+    </div>
+    <div class="form-field">
+        <label for="password">Password:</label>
+        <input
+            class="form-input"
+            type="password"
+            id="password"
+            formControlName="password"
+            [ngClass]="{'form-control-error': loginForm.get('password').touched && loginForm.get('password').invalid}"
+        >
+        <div class="form-validation"
+             *ngIf="loginForm.get('password').touched && loginForm.get('password').invalid"
+        >
+            <small *ngIf="loginForm.get('password').errors.required">Password is empty</small>
+            <small *ngIf="loginForm.get('password').errors.minlength">
+                Actual password length: {{ loginForm.get('password').errors.minlength.actualLength}}
+                Required password length: {{ loginForm.get('password').errors.minlength.requiredLength}}
+            </small>
+        </div>
+    </div>
+    <button type="submit" class="btn" [disabled]="!loginForm.valid">Log in</button>
+</form>
