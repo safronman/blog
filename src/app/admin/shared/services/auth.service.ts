@@ -11,7 +11,14 @@ export class AuthService {
     }
 
     get token(): string {
-        return '';
+        debugger
+        const expDate = new Date(localStorage.getItem('fb-token-exp'));
+        if (new Date() > expDate) {
+            this.logOut();
+            return null;
+        }
+
+        return localStorage.getItem('fb-token-id');
     }
 
     logIn(user: User): Observable<any> {
@@ -23,19 +30,22 @@ export class AuthService {
     }
 
     logOut() {
+        this.setToken(null);
     }
 
     isAuth(): boolean {
         return !!this.token;
     }
 
-    private setToken(res: FbAuthResponse) {
+    private setToken(res: FbAuthResponse | null) {
         debugger
-        const expareDate = new Date( new Date().getTime() + Number(res.expiresIn) * 1000 );
-        localStorage.setItem('fb-token-id', res.idToken);
-        localStorage.setItem('fb-token-exp', expareDate.toString());
-
-        console.log(res);
+        if (res) {
+            const expareDate = new Date(new Date().getTime() + Number(res.expiresIn) * 1000);
+            localStorage.setItem('fb-token-id', res.idToken);
+            localStorage.setItem('fb-token-exp', expareDate.toString());
+        } else {
+            localStorage.clear();
+        }
     }
 
 }
