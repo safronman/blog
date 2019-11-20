@@ -15,6 +15,7 @@ export class AuthService {
     }
 
     logIn(user: User): Observable<any> {
+        user.returnSecureToken = true;
         return this.http.post(`https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${environment.apiKey}`, user)
             .pipe(
                 tap(this.setToken)
@@ -30,6 +31,10 @@ export class AuthService {
 
     private setToken(res: FbAuthResponse) {
         debugger
+        const expareDate = new Date( new Date().getTime() + Number(res.expiresIn) * 1000 );
+        localStorage.setItem('fb-token-id', res.idToken);
+        localStorage.setItem('fb-token-exp', expareDate.toString());
+
         console.log(res);
     }
 
