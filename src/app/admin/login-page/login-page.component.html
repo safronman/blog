@@ -1,3 +1,5 @@
+<div class="errorMessage" *ngIf="authService.isErrorMessage">{{ authService.errorMessage }}</div>
+
 <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
         <label for="email">Email:</label>

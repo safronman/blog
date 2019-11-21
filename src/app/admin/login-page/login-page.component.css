@@ -25,4 +25,12 @@
     border: 2px solid crimson;
 }
 
-
+.errorMessage {
+    background-color: crimson;
+    padding: 20px;
+    color: whitesmoke;
+    width: 32%;
+    margin: 20px auto;
+    text-align: center;
+    font-weight: bold;
+}
