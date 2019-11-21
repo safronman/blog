@@ -1,5 +1,5 @@
-<div class="errorMessage" *ngIf="authService.isErrorMessage">{{ authService.errorMessage }}</div>
-
+<h2 class="form-heading">Administrator panel</h2>
+<div class="errorMessage" *ngIf="authService.error$ | async as error">{{ error }}</div>
 <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
         <label for="email">Email:</label>

@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {FbAuthResponse, User} from '../interfaces/interfaces';
-import {Observable, throwError} from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {environment} from '../../../../environments/environment';
 import {catchError, tap} from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
 
-    errorMessage = '';
-    isErrorMessage = false;
+    public error$: Subject<string> = new Subject<string>();
 
     constructor(private http: HttpClient) {
     }
@@ -53,9 +52,20 @@ export class AuthService {
     }
 
     private handleError(err: HttpErrorResponse) {
-        this.isErrorMessage = true;
-        this.errorMessage = err.error.error.message;
-        // alert(err.error.error.message);
+        const {message} = err.error.error;
+
+        switch (message) {
+            case 'EMAIL_NOT_FOUND':
+                this.error$.next('Email not found');
+                break;
+            case 'INVALID_PASSWORD':
+                this.error$.next('Invalid password');
+                break;
+            case 'USER_DISABLED':
+                this.error$.next('User disabled');
+                break;
+        }
+
         return throwError(err);
     }
 

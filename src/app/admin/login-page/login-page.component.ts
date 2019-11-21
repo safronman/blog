@@ -19,7 +19,7 @@ export class LoginPageComponent implements OnInit {
     });
 
     constructor(
-        private authService: AuthService,
+        public authService: AuthService,
         private router: Router
     ) {
     }
