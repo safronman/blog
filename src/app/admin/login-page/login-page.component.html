@@ -32,5 +32,5 @@
             </small>
         </div>
     </div>
-    <button type="submit" class="btn" [disabled]="!loginForm.valid">Log in</button>
+    <button type="submit" class="btn" [disabled]="!loginForm.valid || submitted">Log in</button>
 </form>

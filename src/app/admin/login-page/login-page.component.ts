@@ -11,6 +11,8 @@ import {Router} from '@angular/router';
 })
 export class LoginPageComponent implements OnInit {
 
+    submitted = false;
+
     loginForm = new FormGroup({
         email: new FormControl('', [Validators.required, Validators.email]),
         password: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -27,6 +29,9 @@ export class LoginPageComponent implements OnInit {
 
     onSubmit() {
         console.log(this.loginForm.value);
+
+        this.submitted = true;
+
         const user: User = {
             email: this.loginForm.value.email,
             password: this.loginForm.value.password
@@ -34,9 +39,9 @@ export class LoginPageComponent implements OnInit {
 
         this.authService.logIn(user)
             .subscribe((res) => {
-                debugger;
                 this.loginForm.reset();
                 this.router.navigate(['/admin', 'dashboard']);
+                this.submitted = false;
             });
     }
 }

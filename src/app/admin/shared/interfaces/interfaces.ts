@@ -1,7 +1,7 @@
 export class User {
     email: string;
     password: string;
-    returnSecureToken: boolean;
+    returnSecureToken?: boolean;
 }
 
 export class FbAuthResponse {
