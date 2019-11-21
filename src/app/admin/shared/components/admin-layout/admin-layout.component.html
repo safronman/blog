@@ -1,7 +1,7 @@
 <nav class="admin-layout-nav">
     <h1 class="admin-layout-title" [routerLink]="['/']">Angular admin</h1>
 
-    <div class="admin-layout-container">
+    <div class="admin-layout-container" *ngIf="authService.isAuth()">
         <ul class="admin-layout-links">
             <li class="admin-layout-link">
                 <a
