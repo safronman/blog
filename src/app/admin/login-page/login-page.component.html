@@ -1,5 +1,8 @@
 <h2 class="form-heading">Administrator panel</h2>
 <div class="errorMessage" *ngIf="authService.error$ | async as error">{{ error }}</div>
+<!--guard error-->
+<div class="warningMessage" *ngIf="message">{{ message }}</div>
+
 <form class="form-container" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-field">
         <label for="email">Email:</label>
