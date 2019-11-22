@@ -9,6 +9,7 @@ import {CreatePageComponent} from './create-page/create-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared.module';
+import {AuthGuard} from './shared/services/auth.guard';
 
 
 @NgModule({
@@ -25,7 +26,10 @@ import {SharedModule} from './shared.module';
         ReactiveFormsModule,
         SharedModule
     ],
-    providers: [AuthService]
+    providers: [
+        AuthService,
+        AuthGuard
+    ]
 })
 export class AdminModule {
 }
