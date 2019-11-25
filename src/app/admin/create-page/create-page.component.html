@@ -12,8 +12,8 @@
             <small *ngIf="postForm.get('title').errors.required">Title is empty</small>
         </div>
     </div>
-    <div>
-        <p>Main content</p>
+    <div class="form-field">
+        <quill-editor formControlName="text"></quill-editor>
     </div>
     <div class="form-field">
         <label for="author">Author:</label>

@@ -11,7 +11,7 @@ export class CreatePageComponent {
 
     postForm = new FormGroup({
         title: new FormControl('', Validators.required),
-        content: new FormControl(''),
+        text: new FormControl(''),
         author: new FormControl('', Validators.required)
     });
 
