@@ -16,3 +16,7 @@ export class Post {
     author: string;
     date: Date;
 }
+
+export class FbCreatePostResponse {
+    name: string;
+}

@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../shared/interfaces/interfaces';
+import {PostsService} from '../../posts.service';
 
 @Component({
     selector: 'app-create-page',
@@ -15,15 +16,20 @@ export class CreatePageComponent {
         author: new FormControl('', Validators.required)
     });
 
-    onSubmit() {
-        console.warn(this.postForm.value);
+    constructor(private postsService: PostsService) {
+    }
 
+
+    onSubmit() {
         const post: Post = {
             title: this.postForm.value.title,
             author: this.postForm.value.author,
             text: this.postForm.value.text,
             date: new Date()
         };
+        this.postsService.createPost(post)
+            .subscribe((res) => {
+            });
     }
 
 }
