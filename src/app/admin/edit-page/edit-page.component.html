@@ -16,7 +16,7 @@
         <div class="form-field">
             <quill-editor formControlName="text"></quill-editor>
         </div>
-        <button type="submit" class="btn" [disabled]="!postForm.valid">Save post</button>
+        <button type="submit" class="btn" [disabled]="!postForm.valid || submitted">Save post</button>
     </form>
 </div>
 

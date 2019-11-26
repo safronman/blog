@@ -28,6 +28,7 @@ export class PostsService {
     getPosts(): Observable<Post[]> {
         return this.http.get(`${environment.fbBaseUrl}/posts.json`)
             .pipe(
+                // todo Object keys
                 map((res: { [key: string]: any }) => {
                     return Object
                         .keys(res)
@@ -57,6 +58,10 @@ export class PostsService {
                     };
                 })
             );
+    }
+
+    updatePost(post: Post): Observable<Post> {
+        return this.http.patch<Post>(`${environment.fbBaseUrl}/posts/${post.id}.json`, post);
     }
 
 }
