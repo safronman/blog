@@ -9,6 +9,7 @@ import {map} from 'rxjs/operators';
 export class PostsService {
 
     constructor(private http: HttpClient) {
+        this.getPosts();
     }
 
     createPost(post: Post): Observable<Post> {
@@ -20,6 +21,23 @@ export class PostsService {
                         id: res.name,
                         date: new Date(post.date)
                     };
+                })
+            );
+    }
+
+    getPosts(): Observable<Post[]> {
+        return this.http.get(`${environment.fbBaseUrl}/posts.json`)
+            .pipe(
+                map((res: { [key: string]: any }) => {
+                    return Object
+                        .keys(res)
+                        .map((key) => {
+                            return {
+                                ...res[key],
+                                id: key,
+                                date: new Date(res[key].date)
+                            };
+                        });
                 })
             );
     }

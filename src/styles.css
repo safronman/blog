@@ -8,6 +8,16 @@
     border: 2px solid grey;
 }
 
+.btn-delete {
+    background-color: crimson;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: whitesmoke;
+    margin-left: 20px;
+}
+
 
 /*form styles*/
 
@@ -60,4 +70,22 @@
 
 .form-heading {
     text-align: center;
+}
+
+/*table*/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid grey;
+}
+
+table th,
+table td {
+    padding: 5px;
+    text-align: left;
+}
+
+table th {
+    background: #f4f4f4;
 }
