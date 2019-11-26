@@ -1,0 +1,28 @@
+.alert-container {
+    position: fixed;
+    top: 100px;
+    right: 200px;
+    max-width: 300px;
+}
+
+.alert-title {
+    margin: 0;
+    color: white;
+}
+
+.alert {
+    width: 200px;
+    padding: 20px;
+}
+
+.alert-success {
+    background-color: mediumseagreen;
+}
+
+.alert-warning {
+    background-color: orange;
+}
+
+.alert-danger {
+    background-color: crimson;
+}
