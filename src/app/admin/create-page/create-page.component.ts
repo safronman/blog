@@ -10,7 +10,7 @@ import {PostsService} from '../../shared/posts.service';
 })
 export class CreatePageComponent {
 
-    postForm = new FormGroup({
+    postsForm = new FormGroup({
         title: new FormControl('', Validators.required),
         text: new FormControl(''),
         author: new FormControl('', Validators.required)
@@ -19,12 +19,11 @@ export class CreatePageComponent {
     constructor(private postsService: PostsService) {
     }
 
-
     onSubmit() {
         const post: Post = {
-            title: this.postForm.value.title,
-            author: this.postForm.value.author,
-            text: this.postForm.value.text,
+            title: this.postsForm.value.title,
+            author: this.postsForm.value.author,
+            text: this.postsForm.value.text,
             date: new Date()
         };
         this.postsService.createPost(post)
