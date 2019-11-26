@@ -7,7 +7,6 @@ import {EditPageComponent} from './edit-page/edit-page.component';
 import {DashboardPageComponent} from './dashboard-page/dashboard-page.component';
 import {CreatePageComponent} from './create-page/create-page.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared.module';
 import {AuthGuard} from './shared/services/auth.guard';
 
@@ -27,7 +26,6 @@ import {AuthGuard} from './shared/services/auth.guard';
         SharedModule
     ],
     providers: [
-        AuthService,
         AuthGuard
     ]
 })

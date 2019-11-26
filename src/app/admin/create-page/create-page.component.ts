@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../shared/interfaces/interfaces';
-import {PostsService} from '../../posts.service';
+import {PostsService} from '../../shared/posts.service';
 
 @Component({
     selector: 'app-create-page',

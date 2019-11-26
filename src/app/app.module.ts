@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, Provider} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app-routing.module';
@@ -9,7 +9,15 @@ import {PostPageComponent} from './post-page/post-page.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {PostComponent} from './shared/components/post/post.component';
 import {SharedModule} from './admin/shared.module';
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import {AuthInterceptor} from './shared/auth.interceptor';
 
+
+export const INTERCEPTOR_PROVIDER: Provider = {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+};
 
 @NgModule({
     declarations: [
@@ -25,7 +33,7 @@ import {SharedModule} from './admin/shared.module';
         AppRoutingModule,
         SharedModule
     ],
-    providers: [],
+    providers: [INTERCEPTOR_PROVIDER],
     bootstrap: [AppComponent]
 })
 export class AppModule {
