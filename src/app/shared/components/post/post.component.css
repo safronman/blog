@@ -6,11 +6,6 @@
     margin: 5px auto;
 }
 
-.post-header {
-    display: flex;
-    justify-content: space-between;
-}
-
 .post-author {
     margin-bottom: 20px;
 }

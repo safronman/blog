@@ -1,10 +1,10 @@
 <div class="post-container">
     <div class="post-header">
         <h2>{{ post.title }}</h2>
-        <b>{{ post.date | date: 'medium': null: 'ru'}}</b>
     </div>
     <div class="post-author">
-        <p>{{ post.author }}</p>
+        <p><b>Author: </b>{{ post.author }}</p>
+        <p><b>Date: </b>{{ post.date | date: 'medium': null: 'ru'}}</p>
     </div>
     <div>
         <button class="btn" [routerLink]="['/post', post.id]">Open post</button>
