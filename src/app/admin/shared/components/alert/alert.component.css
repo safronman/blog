@@ -1,8 +1,8 @@
 .alert-container {
     position: fixed;
     top: 100px;
-    right: 200px;
-    max-width: 300px;
+    left: 20px;
+    z-index: 10;
 }
 
 .alert-title {
@@ -11,7 +11,8 @@
 }
 
 .alert {
-    width: 200px;
+    text-align: center;
+    max-width: 420px;
     padding: 20px;
 }
 

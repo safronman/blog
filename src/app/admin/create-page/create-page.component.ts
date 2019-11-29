@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Post} from '../shared/interfaces/interfaces';
 import {PostsService} from '../../shared/posts.service';
 import {AlertService} from '../shared/services/alert.service';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-create-page',
@@ -19,7 +20,8 @@ export class CreatePageComponent {
 
     constructor(
         private postsService: PostsService,
-        private alertService: AlertService
+        private alertService: AlertService,
+        private router: Router
     ) {
     }
 
@@ -33,6 +35,7 @@ export class CreatePageComponent {
         this.postsService.createPost(post)
             .subscribe((res) => {
                 this.postsForm.reset();
+                this.router.navigate(['/admin', 'dashboard']);
                 this.alertService.success('Post added succesfuly');
             });
     }
