@@ -6,7 +6,7 @@
         </div>
         <div class="post-page-info-container">
             <strong class="post-page-author">{{ post.author }}</strong>
-            <small>{{ post.date | date: 'medium' }}</small>
+            <small>{{ post.date | date: 'medium': null : 'ru' }}</small>
         </div>
         <div class="post-page-content-container">
             <quill-view-html [content]="post.text"></quill-view-html>
